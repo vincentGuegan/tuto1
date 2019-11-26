@@ -13,7 +13,7 @@
 
 Route::view('/', 'welcome');
 // Route::view('contact', 'contact');
-Route::view('a-propos', 'a-propos');
+Route::view('a-propos', 'a-propos')->middleware('test');
 
 // Clients
 // Route::get('clients', 'ClientsController@index');
@@ -27,8 +27,8 @@ Route::view('a-propos', 'a-propos');
 Route::resource('clients', 'ClientsController');
 
 //contact
-Route :: get('contact', 'ContactController@create');
-Route :: post('contact', 'ContactController@store');
+Route :: get('contactez-nous', 'ContactController@create')->name('contact.create');
+Route :: post('contactez-nous', 'ContactController@store')->name('contact.store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
