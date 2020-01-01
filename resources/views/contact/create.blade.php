@@ -6,6 +6,22 @@
     <form  action="{{ route('contact.store') }}"  method="POST">
         @csrf
         <div class="form-group">
+        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder ="Rentrez un pseudo..." value="{{ old('name') ?? $client-> name }}">
+        @error('name')
+            <div class="invalid-feedback">
+                {{$errors->first('name')}}
+            </div>
+        @enderror
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder = "Rentrez un email" value="{{ old('email') ?? $client -> email }}">
+        @error('email')
+        <div class="invalid-feedback">
+            {{$errors->first('email')}}
+        </div>
+        @enderror
+    </div>
+        <div class="form-group">
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder ="Votre nom ..." value="{{ old('name') }}">
                 @error('name')
                     <div class="invalid-feedback">
